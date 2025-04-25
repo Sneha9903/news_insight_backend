@@ -1,0 +1,15 @@
+# render.yaml
+services:
+  - type: web
+    name: news-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+
+  - type: cron
+    name: daily-news-scraper
+    env: python
+    schedule: "0 0 * * *"  # every day at midnight UTC
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scraper.py
