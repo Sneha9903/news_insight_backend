@@ -22,6 +22,7 @@ def get_news_by_city():
     return jsonify(filtered.to_dict(orient="records"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    # Comment out the Flask development server for Gunicorn
+    # app.run(debug=True) 
+    pass
 
